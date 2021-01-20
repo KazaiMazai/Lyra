@@ -24,12 +24,37 @@ into the {body} of the default.hbs template --}}
 <main id="site-main" class="site-main outer">
     <div class="inner posts">
 
-        <div class="post-feed">
+       <div class="post-feed">
+            {{#is "home"}}
+                {{^is "paged"}}
+                    {{#get "posts" 
+                        include="tags,authors" 
+                        filter="featured:true" 
+                        limit="all" as |featured_posts|}}
+
+                        {{#foreach featured_posts}}
+                            {{> "post-card"}}
+                        {{/foreach}}
+                    {{/get}}
+                {{/is}}
+            {{/is}}
+
             {{#foreach posts visibility="all"}}
-
-                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-                {{> "post-card"}}
-
+                {{#if featured}}
+                    {{^is "home"}}
+                        {{#if feature_image}} 
+                            {{> "post-card"}}
+                        {{else}}
+                            {{> "post-card-journal"}}
+                        {{/if}}
+                    {{/is}}
+                {{else}}
+                    {{#if feature_image}} 
+                        {{> "post-card"}}
+                    {{else}}
+                        {{> "post-card-journal"}}
+                    {{/if}}
+                {{/if}}
             {{/foreach}}
         </div>
 
