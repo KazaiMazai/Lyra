@@ -24,7 +24,12 @@
 
             <header class="post-card-header">
                 <div class="post-card-header-tags">
-                    <span class="post-visibility post-visibility-{{visibility}}">Public Post</span>
+                    {{#if featured}}
+                        <span class="post-featuring">Featured</span>
+                    {{else}}
+                        <span class="post-visibility post-visibility-{{visibility}}">Public</span>
+                    {{/if}}
+                    
                     {{#if primary_tag}}
                         {{#primary_tag}}
                             <div class="post-card-primary-tag">{{name}}</div>

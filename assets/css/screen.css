@@ -3521,6 +3521,17 @@ form[data-members-form].error .message-error {
     border-radius: 4px;
 }
 
+.post-featuring {
+    display: inline-block;
+    margin: 0 8px 1px 0;
+    padding: 1px 5px;
+    border: var(--lightgrey) 1px solid;
+    color: var(--midgrey);
+    font-size: 1.2rem;
+    line-height: 1.4em;
+    border-radius: 4px;
+}
+
 .post-visibility-members,
 .post-visibility-paid {
     display: none;
@@ -3618,6 +3629,10 @@ form[data-members-form].error .message-error {
     }
 
     .post-visibility {
+        color: var(--lightgrey);
+    }
+
+    .post-featuring {
         color: var(--lightgrey);
     }
 
