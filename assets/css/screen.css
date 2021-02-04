@@ -939,6 +939,10 @@ make sure this only happens on large viewports / desktop-ish devices.
         font-size: 1.8rem;
         line-height: 1.5em;
     }
+
+    .post-card-wide .post-card-excerpt p {
+        max-width: 44em;
+    }
 }
 
 
