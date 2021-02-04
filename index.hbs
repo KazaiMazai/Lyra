@@ -42,18 +42,18 @@ into the {body} of the default.hbs template --}}
             {{#foreach posts visibility="all"}}
                 {{#if featured}}
                     {{^is "index"}}
-                        {{#if feature_image}} 
-                            {{> "post-card"}}
+                        {{#has tag= "#note"}} 
+                             {{> "post-card-journal"}}
                         {{else}}
-                            {{> "post-card-journal"}}
-                        {{/if}}
+                            {{> "post-card"}}
+                        {{/has}}
                     {{/is}}
                 {{else}}
-                    {{#if feature_image}} 
-                        {{> "post-card"}}
-                    {{else}}
+                    {{#has tag= "#note"}} 
                         {{> "post-card-journal"}}
-                    {{/if}}
+                    {{else}}
+                        {{> "post-card"}}
+                    {{/has}}
                 {{/if}}
             {{/foreach}}
         </div>
